@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
+
+<style>
+
+.container{
+    padding: 0px 50px;
+	    margin-top: 40px;
+	display: flex;
+/*     justify-content: center; */
+    align-items: baseline;
+}
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  /* perspective: 1000px; */
+  border-radius: 50px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  padding: 20px;
+    
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  text-align: center;
+  padding-top: 40px;
+  
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+		  <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-color:beige;">              
+              <h3 style="font-weight: 400;font-size: 22px;">Senior Front End Developer</h3> 
+            </div>
+            <div class="flip-card-back">
+              <h3 style="font-weight: 400;font-size: 22px;">2+ Year Exp</h3> 
+              <p style="font-size: 16px;">Bangalore</p> 
+              <p style="font-size: 16px;">React, Devops, html, css, js</p>
+              <a href="https://panorbit.in/the-job-sr-fed-web/" class="fa fa-arrow-right" style="color:white;font-size: large;"></a>
+            </div>
+          </div>
+        </div>
+      </div> 
+</div>
+      <div class="container">      
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-color:beige;">              
+              <h3 style="font-weight: 400;font-size: 22px;">Front End Developer</h3> 
+            </div>
+            <div class="flip-card-back">
+              <h3 style="font-weight: 400;font-size: 22px;">0-2 Year Exp</h3> 
+              <p style="font-size: 16px;">Bangalore</p> 
+              <p style="font-size: 16px;">React, Devops, html, css, js</p>
+              <a href="https://panorbit.in/the-job-sr-fed-web/" class="fa fa-arrow-right" style="color:white;font-size: large;"></a>
+            </div>
+          </div>
+        </div>
+      </div> 
+</div>
+ 
+       
+</body>
+</html>
