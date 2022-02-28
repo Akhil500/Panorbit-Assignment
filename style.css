@@ -412,7 +412,7 @@ hr{
   border-radius: 20px;
 }
 
-
+/*moblie version css*/
 @media screen and  (max-width: 600px) {
   .tab{
   float: left;
