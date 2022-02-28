@@ -32,10 +32,8 @@
                 <img src="istockphoto-1300972574-170667a.jpg" alt="" class="picture"></img>
                 <p id="name" class="information"></p>
                 <p id="name1" class="information-email"></p>
-                <hr></hr>
-                <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic" style="color: black; margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Clementine Bauch</span></img></a>
-                <hr></hr>
-                <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic"style=" margin: 0px 10px 0px 10px;" ><span style="color:black;font-size: 14px;font-weight: 300;">Patricia Lebsack</span></img><br><br></a>
+                <p id="next-name"></p>
+                <p id="next-name1"></p>
                 <button onclick="location.href='file:///C:/Users/user/Desktop/Assignmemt/landing.html'" type="button" class="signout">Sign Out</button>
                   
               </div>
@@ -72,11 +70,8 @@
               <img src="istockphoto-1300972574-170667a.jpg" alt="" class="picture"></img>
               <p id="name2" class="information"></p>
               <p id="name3" class="information-email"></p>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic" style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Clementine Bauch</span></img></a>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic"style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Patricia Lebsack</span></img><br><br></a>
-             
+              <p id="next-name2"></p>
+                <p id="next-name3"></p>
               <button onclick="location.href='file:///C:/Users/user/Desktop/Assignmemt/landing.html'" type="button" class="signout">Sign Out</button>
             </div>
           </div>
@@ -96,11 +91,8 @@
               <img src="istockphoto-1300972574-170667a.jpg" alt="" class="picture"></img>
               <p id="name4" class="information"></p>
               <p id="name5" class="information-email"></p>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic" style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Clementine Bauch</span></img></a>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic"style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Patricia Lebsack</span></img><br><br></a>
-             
+              <p id="next-name4"></p>
+              <p id="next-nam5"></p>
               <button onclick="location.href='file:///C:/Users/user/Desktop/Assignmemt/landing.html'" type="button" class="signout">Sign Out</button>
             </div>
           </div>
@@ -119,11 +111,8 @@
               <img src="istockphoto-1300972574-170667a.jpg" alt="" class="picture"></img>
               <p id="name6" class="information"></p>
               <p id="name7" class="information-email"></p>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic" style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Clementine Bauch</span></img></a>
-              <hr></hr>
-              <a href="dashboard.html"><img src="istockphoto-1300972574-170667a.jpg" alt="" class="profile-pic"style=" margin: 0px 10px 0px 10px;" ><span style="color: black;font-size: 14px;font-weight: 300;">Patricia Lebsack</span></img><br><br></a>
-             
+              <p id="next-name6"></p>
+              <p id="next-name7"></p>
               <button onclick="location.href='file:///C:/Users/user/Desktop/Assignmemt/landing.html'" type="button" class="signout">Sign Out</button>
             </div>
           </div>
@@ -192,11 +181,17 @@
     
     // documnet.getElementById("data").innerHTML= data.users[0].name;
     var url="https://panorbit.in/api/users.json";
+       var queryString = window.location.search;
+       console.log(queryString);
+       const urlParams = new URLSearchParams(queryString);
+       const id = urlParams.get('id')
+       console.log(id);
+       
    
     $.getJSON(url, function(data)
     {
-       var queryString = window.location.search;
-       console.log(queryString);
+ 
+
       for(var key in data.users)
         { 
             
@@ -204,46 +199,61 @@
 
         }
 
-        document.getElementById("chat-firstname").innerHTML += data.users[0].name;
+        document.getElementById("chat-firstname").innerHTML += data.users[id-1].name;
+
+        document.getElementById("next-name").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id-2].id+'&name='+data.users[id-2].name+' " style="font-size:16px;color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id-2].name+ '</a><br>';
+        document.getElementById("next-name1").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id].id+'&name='+data.users[id].name+' " style="font-size:16px;color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id].name+ '</a><br>';
+        
+        document.getElementById("next-name2").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id-2].id+'&name='+data.users[id-2].name+' " style="font-size:16px;color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id-2].name+ '</a><br>';
+        document.getElementById("next-name3").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id].id+'&name='+data.users[id].name+' " style="font-size:16px;color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id].name+ '</a><br>';
+        
+        // document.getElementById("next-name4").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id-1].id+'&name='+data.users[id-2].name+' " style="color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id-2].name+ '</a><br>';
+        // document.getElementById("next-name5").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id].id+'&name='+data.users[id].name+' " style="color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id].name+ '</a><br>';
+        
+        // document.getElementById("next-name6").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id-2].id+'&name='+data.users[id-2].name+' " style="color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id-2].name+ '</a><br>';
+        // document.getElementById("next-name7").innerHTML += '<hr class="hrhr"></hr><a href=dashboard.html?id='+data.users[id].id+'&name='+data.users[id].name+' " style="color:black;text-decoration:none;"><img src="C:/Users/user/Desktop/Assignmemt/istockphoto-1300972574-170667a.jpg" alt=""  class="img"></img>  '  +data.users[id].name+ '</a><br>';
+        
+        // document.getElementById("next-name").innerHTML += data.users[id-2].name;
+        // document.getElementById("next-name1").innerHTML += data.users[id].name;
        
-       document.getElementById("username1").innerHTML += data.users[0].name;
-       document.getElementById("username2").innerHTML += data.users[0].name;
-       document.getElementById("username3").innerHTML += data.users[0].name;
-       document.getElementById("username4").innerHTML += data.users[0].name;
+       document.getElementById("username1").innerHTML += data.users[id-1].name;
+       document.getElementById("username2").innerHTML += data.users[id-1].name;
+       document.getElementById("username3").innerHTML += data.users[id-1].name;
+       document.getElementById("username4").innerHTML += data.users[id-1].name;
 
 
       //  document.getElementById("next").innerHTML += data.users[1].name;
       //  document.getElementById("next1").innerHTML += data.users[2].name;
 
-       document.getElementById("name").innerHTML += data.users[0].name+ '<br>';
-       document.getElementById("name1").innerHTML += data.users[0].email;
+       document.getElementById("name").innerHTML += data.users[id-1].name+ '<br>';
+       document.getElementById("name1").innerHTML += data.users[id-1].email;
 
-       document.getElementById("name2").innerHTML += data.users[0].name+ '<br>';
-       document.getElementById("name3").innerHTML += data.users[0].email;
+       document.getElementById("name2").innerHTML += data.users[id-1].name+ '<br>';
+       document.getElementById("name3").innerHTML += data.users[id-1].email;
 
-       document.getElementById("name4").innerHTML += data.users[0].name+ '<br>';
-       document.getElementById("name5").innerHTML += data.users[0].email;
+       document.getElementById("name4").innerHTML += data.users[id-1].name+ '<br>';
+       document.getElementById("name5").innerHTML += data.users[id-1].email;
 
-       document.getElementById("name6").innerHTML += data.users[0].name+ '<br>';
-       document.getElementById("name7").innerHTML += data.users[0].email;
+       document.getElementById("name6").innerHTML += data.users[id-1].name+ '<br>';
+       document.getElementById("name7").innerHTML += data.users[id-1].email;
              
-        document.getElementById("data").innerHTML += '<span class="details1" >' +data.users[0].name+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">Username :</span><span class="details">' +data.users[0].username+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">e-mail : </span><span class="details">' +data.users[0].email+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">Phone : </span><span class="details">' +data.users[0].phone+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">Website :</span><span class="details">' +data.users[0].website+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="details1" >' +data.users[id-1].name+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">Username :</span><span class="details">' +data.users[id-1].username+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">e-mail : </span><span class="details">' +data.users[id-1].email+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">Phone : </span><span class="details">' +data.users[id-1].phone+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">Website :</span><span class="details">' +data.users[id-1].website+ '</span><br>';
         document.getElementById("data").innerHTML += '<center><hr></hr><br>';
        
         document.getElementById("data").innerHTML += '<center><span class="title">Company</span> <br>' ;
-        document.getElementById("data").innerHTML += '<span class="name">Name : </span><span class="details">' +data.users[0].company['name']+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">catchPhrase :</span><span class="details"> ' +data.users[0].company['catchPhrase']+ '</span><br>';
-        document.getElementById("data").innerHTML += '<span class="name">bs : </span><span class="details"> ' +data.users[0].company['bs']+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">Name : </span><span class="details">' +data.users[id-1].company['name']+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">catchPhrase :</span><span class="details"> ' +data.users[id-1].company['catchPhrase']+ '</span><br>';
+        document.getElementById("data").innerHTML += '<span class="name">bs : </span><span class="details"> ' +data.users[id-1].company['bs']+ '</span><br>';
 
         document.getElementById("data2").innerHTML += '<span class="title">Address</span> <br>';
-        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Street :</span><span class="details"> ' +data.users[0].address['street']+ '</span><br>';
-        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Suite :</span><span class="details"> ' +data.users[0].address['suite']+ '</span><br>';
-        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">City : </span><span class="details">' +data.users[0].address['cityx']+ '</span><br>';
-        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Zipcode :</span><span class="details"> ' +data.users[0].address['zipcode']+ '</span><br>';
+        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Street :</span><span class="details"> ' +data.users[id-1].address['street']+ '</span><br>';
+        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Suite :</span><span class="details"> ' +data.users[id-1].address['suite']+ '</span><br>';
+        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">City : </span><span class="details">' +data.users[id-1].address['cityx']+ '</span><br>';
+        document.getElementById("data2").innerHTML += '<span class="name" style="padding-left:30px;">Zipcode :</span><span class="details"> ' +data.users[id-1].address['zipcode']+ '</span><br>';
 
 
     })
