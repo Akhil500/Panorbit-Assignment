@@ -192,8 +192,11 @@
     
     // documnet.getElementById("data").innerHTML= data.users[0].name;
     var url="https://panorbit.in/api/users.json";
+   
     $.getJSON(url, function(data)
     {
+       var queryString = window.location.search;
+       console.log(queryString);
       for(var key in data.users)
         { 
             
